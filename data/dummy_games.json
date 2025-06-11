@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "The Witcher 3: Wild Hunt",
+    "storyline": "Geralt of Rivia, a monster hunter, embarks on a long journey to find Ciri, a child of prophecy, in a vast, war-torn world. His search is intertwined with the fate of the Northern Kingdoms and the powerful Wild Hunt.",
+    "summary": "A sprawling fantasy RPG with an emphasis on choice and consequence, exploring a rich world filled with moral ambiguities, memorable characters, and dangerous monsters. Features deep combat, crafting, and an engaging narrative.",
+    "total_rating": 93.2,
+    "total_rating_count": 125000,
+    "game_modes": [
+      { "id": 1, "game_mode": { "name": "Single player" } }
+    ],
+    "keywords": [
+      { "id": 1, "keyword": { "name": "fantasy" } },
+      { "id": 2, "keyword": { "name": "rpg" } },
+      { "id": 3, "keyword": { "name": "open world" } }
+    ],
+    "language_supports": [
+      { "id": 1, "language": { "name": "English" } },
+      { "id": 2, "language": { "name": "Polish" } },
+      { "id": 3, "language": { "name": "German" } }
+    ],
+    "genres": [
+      { "id": 1, "genre": { "name": "Role-playing (RPG)" } },
+      { "id": 2, "genre": { "name": "Adventure" } }
+    ],
+    "player_perspectives": [
+      { "id": 1, "player_perspective": { "name": "Third-person" } }
+    ],
+    "platforms": [
+      { "id": 1, "platform": { "name": "PC" } },
+      { "id": 2, "platform": { "name": "PlayStation 4" } },
+      { "id": 3, "platform": { "name": "Xbox One" } },
+      { "id": 4, "platform": { "name": "Nintendo Switch" } }
+    ],
+    "screenshots": [
+      { "id": 1, "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc859.jpg" },
+      { "id": 2, "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc860.jpg" }
+    ],
+    "age_ratings": [
+        {
+            "id": 100,
+            "category": 1,
+            "rating": 1,
+            "rating_category": { "id": 1, "name": "ESRB", "rating": "M" },
+            "content_descriptions": [
+                { "id": 1, "description": "Blood and Gore" },
+                { "id": 2, "description": "Intense Violence" }
+            ]
+        },
+        {
+            "id": 101,
+            "category": 2,
+            "rating": 2,
+            "rating_category": { "id": 2, "name": "PEGI", "rating": "18" },
+            "content_descriptions": [
+                { "id": 3, "description": "Violence" },
+                { "id": 4, "description": "Bad Language" }
+            ]
+        }
+    ],
+    "videos": [
+        { "id": 1, "name": "Official Gameplay Trailer", "video_id": "c0i88t0Kacs" },
+        { "id": 2, "name": "Launch Trailer", "video_id": "nYc_D97Wz7k" }
+    ],
+    "websites": [
+        { "id": 1, "url": "https://thewitcher.com/" },
+        { "id": 2, "url": "https://steam.com/witcher3" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cyberpunk 2077",
+    "storyline": "In the sprawling megalopolis of Night City, V, a mercenary outlaw, pursues a one-of-a-kind implant that is the key to immortality. The choices made and relationships forged will determine V's destiny in this neon-drenched future.",
+    "summary": "An open-world, action-adventure RPG set in the dark future of Night City, a megalopolis obsessed with power, glamour and body modification. Take on the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
+    "total_rating": 78.5,
+    "total_rating_count": 98000,
+    "game_modes": [
+      { "id": 1, "game_mode": { "name": "Single player" } },
+      { "id": 2, "game_mode": { "name": "Multiplayer" } }
+    ],
+    "keywords": [
+      { "id": 1, "keyword": { "name": "cyberpunk" } },
+      { "id": 2, "keyword": { "name": "rpg" } },
+      { "id": 3, "keyword": { "name": "open world" } }
+    ],
+    "language_supports": [
+      { "id": 1, "language": { "name": "English" } },
+      { "id": 2, "language": { "name": "Polish" } },
+      { "id": 3, "language": { "name": "Japanese" } }
+    ],
+    "genres": [
+      { "id": 1, "genre": { "name": "Role-playing (RPG)" } },
+      { "id": 2, "genre": { "name": "Action" } }
+    ],
+    "player_perspectives": [
+      { "id": 1, "player_perspective": { "name": "First-person" } }
+    ],
+    "platforms": [
+      { "id": 1, "platform": { "name": "PC" } },
+      { "id": 2, "platform": { "name": "PlayStation 5" } },
+      { "id": 3, "platform": { "name": "Xbox Series X" } }
+    ],
+    "screenshots": [
+      { "id": 1, "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq6.jpg" },
+      { "id": 2, "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq7.jpg" }
+    ],
+    "age_ratings": [
+        {
+            "id": 200,
+            "category": 3,
+            "rating": 3,
+            "rating_category": { "id": 3, "name": "USK", "rating": "18" },
+            "content_descriptions": [
+                { "id": 5, "description": "Violence" },
+                { "id": 6, "description": "Strong Language" }
+            ]
+        },
+        {
+            "id": 201,
+            "category": 4,
+            "rating": 4,
+            "rating_category": { "id": 4, "name": "CERO", "rating": "Z" },
+            "content_descriptions": [
+                { "id": 7, "description": "Sexual Content" },
+                { "id": 8, "description": "Drug Reference" }
+            ]
+        }
+    ],
+    "videos": [
+        { "id": 3, "name": "Official Cinematic Trailer", "video_id": "oJzS_rS4f54" }
+    ],
+    "websites": [
+        { "id": 3, "url": "https://www.cyberpunk.net/" },
+        { "id": 4, "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/" }
+    ]
+  }
+]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDB - Sources</title>
+    <link href="./dist/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans antialiased">
+    <header class="bg-gray-800 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-400">GameDB</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-lg hover:text-blue-300 transition-colors duration-200">Home</a></li>
+                    <li><a href="about.html" class="text-lg hover:text-blue-300 transition-colors duration-200">About</a></li>
+                    <li><a href="sources.html" class="text-lg hover:text-blue-300 transition-colors duration-200">Sources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 min-h-screen">
+        <h2 class="text-4xl font-extrabold text-white mb-8 text-center">Data Sources</h2>
+
+        <section id="primary-source" class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+            <h3 class="text-2xl font-semibold text-blue-300 mb-4">Primary Data Source: IGDB API</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Our primary game data is sourced from the <a href="https://www.igdb.com/" target="_blank" class="text-blue-400 hover:underline">Internet Game Database (IGDB) API</a>. IGDB is a comprehensive database for video games, offering a wide range of information including game titles, storylines, summaries, ratings, genres, game modes, and more.
+            </p>
+            <p class="text-lg leading-relaxed">
+                We periodically retrieve and process data from the IGDB API to ensure our database remains updated with accurate information. All data displayed on this website is subject to IGDB's terms of service and licensing.
+            </p>
+        </section>
+
+        <section id="additional-info" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-semibold text-blue-300 mb-4">Additional Information</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                While IGDB serves as our main data provider, supplementary information and visual assets (e.g., screenshots, where applicable) may be curated or linked from other publicly available sources to enhance the user experience. All third-party content is used under fair use principles or with appropriate attribution.
+            </p>
+            <p class="text-lg leading-relaxed">
+                This website is a personal portfolio project and is not affiliated with IGDB or any game publishers directly. It is intended for educational and demonstration purposes only.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 p-4 mt-8 shadow-inner text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; 2025 GameDB. All rights reserved. Data provided by IGDB.com</p>
+        </div>
+    </footer>
+
+    <script src="./src/script.js"></script>
+</body>
+</html>

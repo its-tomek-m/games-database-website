@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDB - Your Ultimate Game Database</title>
+    <link href="./dist/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-gray-200 font-sans antialiased">
+
+    <header class="bg-gray-800 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-400">GameDB</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-lg hover:text-blue-300 transition-colors duration-200">Home</a>
+                    </li>
+                    <li><a href="about.html"
+                            class="text-lg hover:text-blue-300 transition-colors duration-200">About</a></li>
+                    <li><a href="sources.html"
+                            class="text-lg hover:text-blue-300 transition-colors duration-200">Sources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 min-h-screen">
+        <h2 class="text-4xl font-extrabold text-white mb-8 text-center">Explore Our Game Collection</h2>
+
+        <div id="controls-container" class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+            <h3 class="text-xl font-semibold mb-4">Search, Filter & Sort Games</h3>
+            <div class="mb-4">
+                <label for="search-input" class="block text-gray-400 text-sm font-bold mb-2">Search by Name, Storyline
+                    or Summary:</label>
+                <input type="text" id="search-input" placeholder="e.g., The Witcher, Cyberpunk"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600 placeholder-gray-400">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label for="genre-filter" class="block text-gray-400 text-sm font-bold mb-2">Filter by
+                        Genre:</label>
+                    <select id="genre-filter"
+                        class="block w-full py-2 px-3 border border-gray-600 bg-gray-700 rounded shadow leading-tight focus:outline-none focus:shadow-outline text-gray-200">
+                        <option value="">All Genres</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="gamemode-filter" class="block text-gray-400 text-sm font-bold mb-2">Filter by Game
+                        Mode:</label>
+                    <select id="gamemode-filter"
+                        class="block w-full py-2 px-3 border border-gray-600 bg-gray-700 rounded shadow leading-tight focus:outline-none focus:shadow-outline text-gray-200">
+                        <option value="">All Game Modes</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sort-by" class="block text-gray-400 text-sm font-bold mb-2">Sort By:</label>
+                    <select id="sort-by"
+                        class="block w-full py-2 px-3 border border-gray-600 bg-gray-700 rounded shadow leading-tight focus:outline-none focus:shadow-outline text-gray-200">
+                        <option value="name_asc">Name (A-Z)</option>
+                        <option value="name_desc">Name (Z-A)</option>
+                        <option value="rating_desc">Rating (High to Low)</option>
+                        <option value="rating_asc">Rating (Low to High)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="game-list" class="grid grid-cols-1 gap-6">
+        </div>
+
+        <div id="pagination-controls" class="flex justify-center mt-8 space-x-2">
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 p-4 mt-8 shadow-inner text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; 2025 GameDB. All rights reserved. Data provided by IGDB.com</p>
+        </div>
+    </footer>
+
+    <script src="./src/script.js"></script>
+</body>
+
+</html>
