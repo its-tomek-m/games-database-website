@@ -1,160 +1,41 @@
 // src/script.js
 
+/**
+ * Main JavaScript file for the GameDB website.
+ * Handles data loading, table rendering, search, filter, sort, and pagination.
+ *
+ * This project is intended for a portfolio and will be published on GitHub Pages.
+ * Automated tests with Playwright are planned for future iterations.
+ */
+
 // --- Global Variables ---
+// All games data loaded from JSON
 let allGames = [];
+// Games currently displayed after search/filter/sort
 let filteredAndSortedGames = [];
+// Current page number for pagination
 let currentPage = 1;
-const gamesPerPage = 20;
-const ageRatingSystems = ['ESRB', 'PEGI', 'USK', 'CERO'];
-
-// --- GLOBAL DOM Elements for header features ---
-let themeToggle;
-let sunIcon;
-let moonIcon;
-let mobileMenuButton;
-let mobileMenu;
-
-// --- GLOBAL DOM Elements specific to index.html for game data ---
-let gameListContainer;
-let paginationControls;
-let searchInput;
-let genreFilter;
-let gamemodeFilter;
-let sortBy;
+// Number of games to display per page
+const gamesPerPage = 20; // Set to a smaller number for testing with dummy data if needed, e.g., 2
+const ageRatingSystems = ['ESRB', 'PEGI', 'USK', 'CERO']; // Defined age rating systems to display
 
 
-// --- Utility Functions (shared for header features) ---
-// TE FUNKCJE MUSZĄ BYĆ TUTAJ, PRZED initializeHeaderFeatures!
+// --- DOM Elements ---
+const gameListContainer = document.getElementById('game-list');
+const paginationControls = document.getElementById('pagination-controls');
+const searchInput = document.getElementById('search-input');
+const genreFilter = document.getElementById('genre-filter');
+const gamemodeFilter = document.getElementById('gamemode-filter');
+const sortBy = document.getElementById('sort-by');
+
+
+// --- Utility Functions ---
 
 /**
- * Toggles dark/light mode and saves preference to localStorage.
+ * Fetches game data from the local JSON file.
+ * @returns {Promise<Array>} A promise that resolves with an array of game objects.
+ * @throws {Error} If the network response is not ok.
  */
-function toggleTheme() {
-    const isDarkMode = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    updateThemeIcons(isDarkMode);
-}
-
-/**
- * Updates the visibility of sun/moon icons based on the current theme.
- * @param {boolean} isDarkMode - True if dark mode is active, false otherwise.
- */
-function updateThemeIcons(isDarkMode) {
-    if (isDarkMode) {
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-    } else {
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-    }
-}
-
-/**
- * Applies the saved theme preference on page load.
- */
-function applySavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        updateThemeIcons(true);
-    } else if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-        updateThemeIcons(false);
-    } else {
-        // Default to dark mode if no preference is saved (or check system preference)
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-            updateThemeIcons(true);
-        } else {
-            document.documentElement.classList.remove('dark');
-            updateThemeIcons(false);
-        }
-    }
-}
-
-/**
- * Toggles the visibility of the mobile navigation menu.
- * Dynamically positions the menu on desktop to appear below the button.
- */
-function toggleMobileMenu() {
-    if (!mobileMenu || !mobileMenuButton) {
-        console.error("Mobile menu elements not found!");
-        return;
-    }
-
-    mobileMenu.classList.toggle('hidden');
-
-    if (!mobileMenu.classList.contains('hidden') && window.innerWidth >= 768) {
-        const buttonRect = mobileMenuButton.getBoundingClientRect();
-        mobileMenu.style.top = `${buttonRect.bottom + window.scrollY + 10}px`;
-        mobileMenu.style.right = `${window.innerWidth - buttonRect.right}px`;
-        mobileMenu.style.left = 'auto';
-    } else {
-        mobileMenu.style.top = '';
-        mobileMenu.style.right = '';
-        mobileMenu.style.left = '';
-    }
-}
-
-/**
- * Closes the mobile menu if a click occurs outside of it or its toggle button.
- * @param {Event} event - The click event.
- */
-function handleClickOutsideMenu(event) {
-    if (mobileMenu && mobileMenuButton && !mobileMenu.classList.contains('hidden')) {
-        const isClickInsideMenu = mobileMenu.contains(event.target);
-        const isClickInsideButton = mobileMenuButton.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickInsideButton) {
-            mobileMenu.classList.add('hidden');
-        }
-    }
-}
-
-/**
- * Initializes header-related features (theme toggle, hamburger menu).
- * This function should be called on DOMContentLoaded for ALL pages.
- */
-function initializeHeaderFeatures() {
-    // Assign global DOM variables here once elements are available
-    themeToggle = document.getElementById('theme-toggle');
-    sunIcon = document.getElementById('sun-icon');
-    moonIcon = document.getElementById('moon-icon');
-    mobileMenuButton = document.getElementById('mobile-menu-button');
-    mobileMenu = document.getElementById('mobile-menu');
-
-    applySavedTheme(); // Ta funkcja jest teraz zdefiniowana wyżej
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        document.addEventListener('click', handleClickOutsideMenu);
-
-        window.addEventListener('resize', () => {
-            if (!mobileMenu.classList.contains('hidden') && window.innerWidth >= 768) {
-                const buttonRect = mobileMenuButton.getBoundingClientRect();
-                mobileMenu.style.top = `${buttonRect.bottom + window.scrollY + 10}px`;
-                mobileMenu.style.right = `${window.innerWidth - buttonRect.right}px`;
-                mobileMenu.style.left = 'auto';
-            } else if (mobileMenu.classList.contains('hidden') && window.innerWidth < 768) {
-                mobileMenu.style.top = '';
-                mobileMenu.style.right = '';
-                mobileMenu.style.left = '';
-            }
-            if (window.innerWidth < 768) {
-                mobileMenu.style.top = '';
-                mobileMenu.style.right = '';
-                mobileMenu.style.left = '';
-            }
-        });
-    }
-}
-
-
-// --- Utility Functions (specific to index.html for game data) ---
-
 async function fetchGameData() {
     try {
         const response = await fetch('./data/dummy_games.json');
@@ -170,13 +51,22 @@ async function fetchGameData() {
     }
 }
 
+/**
+ * Formats game data for consistent display.
+ * Extracts relevant fields and handles nested objects/arrays according to display requirements.
+ * @param {Object} game - The raw game object from the JSON.
+ * @returns {Object} A formatted game object with flattened and processed data.
+ */
 function formatGameData(game) {
+    // Helper to extract names from nested arrays like genres, game_modes, etc.
     const extractNames = (arr, key) => arr && arr.length > 0 ? arr.map(item => item[key].name).filter(Boolean).join(', ') : 'N/A';
 
+    // Check for 'Co-op' and 'Split screen' in game modes
     const gameModesNames = game.game_modes ? game.game_modes.map(mode => mode.game_mode.name).filter(Boolean) : [];
     const hasOfflineCoOp = gameModesNames.includes('Co-op') ? 'Yes' : 'No';
     const hasSplitScreen = gameModesNames.includes('Split screen') ? 'Yes' : 'No';
 
+    // Format Age Ratings
     const formattedAgeRatings = {};
     if (game.age_ratings && game.age_ratings.length > 0) {
         ageRatingSystems.forEach(system => {
@@ -195,13 +85,15 @@ function formatGameData(game) {
         });
     }
 
+    // Format Videos (take the first one, link to YouTube)
     const firstVideo = game.videos && game.videos.length > 0 ? game.videos[0] : null;
     const formattedVideo = firstVideo ?
         `${firstVideo.name}: https://www.youtube.com/watch?v=${firstVideo.video_id}` :
         'No video available.';
 
+    // Format Websites (all links, each in new line with a dash)
     const formattedWebsites = game.websites && game.websites.length > 0 ?
-        game.websites.map(site => `- <a href="${site.url}" target="_blank" class="text-blue-400 hover:underline">${site.url}</a>`).join('<br>') :
+        game.websites.map(site => `- ${site.url}`).join('<br>') :
         'No websites available.';
 
     return {
@@ -209,8 +101,8 @@ function formatGameData(game) {
         name: game.name || 'Unknown Title',
         storyline: game.storyline || 'No storyline available.',
         summary: game.summary || 'No summary available.',
-        rating: game.total_rating ? game.total_rating.toFixed(1) : 'N/A',
-        totalRatingCount: game.total_rating_count ? game.total_rating_count.toLocaleString() : 'N/A',
+        rating: game.total_rating ? game.total_rating.toFixed(1) : 'N/A', // Format rating to one decimal place
+        totalRatingCount: game.total_rating_count ? game.total_rating_count.toLocaleString() : 'N/A', // Format with locale-specific thousands separator
         gameModes: extractNames(game.game_modes, 'game_mode'),
         keywords: extractNames(game.keywords, 'keyword'),
         languages: extractNames(game.language_supports, 'language'),
@@ -219,23 +111,31 @@ function formatGameData(game) {
         splitScreen: hasSplitScreen,
         perspectives: extractNames(game.player_perspectives, 'player_perspective'),
         platforms: extractNames(game.platforms, 'platform'),
-        screenshots: game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].url : 'https://via.placeholder.com/300x150?text=No+Screenshot',
-        ageRatings: formattedAgeRatings,
+        screenshots: game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].url : 'no-screenshot.jpg', // Use first screenshot URL
+        ageRatings: formattedAgeRatings, // Object with specific age rating strings
         video: formattedVideo,
         websites: formattedWebsites
     };
 }
 
 
+/**
+ * Renders a single game item (row in the "table").
+ * @param {Object} game - The formatted game object.
+ * @returns {HTMLElement} The created game item DOM element.
+ */
 function renderGameItem(game) {
     const gameItem = document.createElement('div');
+    // Apply Tailwind classes for the 'table row' look
     gameItem.className = 'game-item bg-gray-800 p-4 rounded-lg shadow-md mb-4 cursor-pointer hover:bg-gray-700 transition-colors duration-200';
-    gameItem.dataset.gameId = game.id;
+    gameItem.dataset.gameId = game.id; // Store ID for click handling
 
+    // Display age ratings: ESRB, PEGI, USK, CERO
     const ageRatingDisplay = ageRatingSystems.map(system =>
         `<p class="mb-1">${game.ageRatings[system] || `${system}: N/A`}</p>`
     ).join('');
 
+    // Basic view (always visible)
     gameItem.innerHTML = `
         <div class="flex flex-col md:grid md:grid-cols-5 gap-4 items-start font-bold text-lg">
             <div class="text-blue-400 text-xl md:col-span-1">${game.name}</div>
@@ -254,24 +154,29 @@ function renderGameItem(game) {
             <p class="mb-2"><span class="font-semibold text-blue-300">Player Perspectives:</span> ${game.perspectives}</p>
             <p class="mb-2"><span class="font-semibold text-blue-300">Platforms:</span> ${game.platforms}</p>
             <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video.split(': ')[0]}</a></p>
+            <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
             <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
-            ${game.screenshots !== 'https://via.placeholder.com/300x150?text=No+Screenshot' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+            ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
         </div>
     `;
 
+    // Add click event listener to toggle details
     gameItem.addEventListener('click', () => {
         const details = gameItem.querySelector('.game-details');
         details.classList.toggle('hidden');
+        // Optional: Add an icon to indicate expansion/collapse
+        // e.g., gameItem.querySelector('.expand-icon').classList.toggle('rotate-180');
     });
 
     return gameItem;
 }
 
+/**
+ * Renders the games for the current page and updates pagination controls.
+ * This function is called after filtering, sorting, or page changes.
+ */
 function renderGames() {
-    if (!gameListContainer) return;
-
-    gameListContainer.innerHTML = '';
+    gameListContainer.innerHTML = ''; // Clear previous games
 
     const startIndex = (currentPage - 1) * gamesPerPage;
     const endIndex = startIndex + gamesPerPage;
@@ -279,28 +184,30 @@ function renderGames() {
 
     if (gamesToDisplay.length === 0) {
         gameListContainer.innerHTML = '<p class="text-center text-gray-400 text-lg mt-8">No games found matching your criteria.</p>';
-        if (paginationControls) paginationControls.innerHTML = '';
+        paginationControls.innerHTML = ''; // Hide pagination if no games
         return;
     }
 
     gamesToDisplay.forEach(game => {
-        const formattedGame = formatGameData(game);
+        const formattedGame = formatGameData(game); // Format data just before rendering
         gameListContainer.appendChild(renderGameItem(formattedGame));
     });
 
     renderPaginationControls();
 }
 
+/**
+ * Renders pagination buttons.
+ */
 function renderPaginationControls() {
-    if (!paginationControls) return;
-
-    paginationControls.innerHTML = '';
+    paginationControls.innerHTML = ''; // Clear previous controls
     const totalPages = Math.ceil(filteredAndSortedGames.length / gamesPerPage);
 
-    if (totalPages <= 1) {
+    if (totalPages <= 1) { // Hide pagination if only one page or less
         return;
     }
 
+    // Previous button
     const prevButton = document.createElement('button');
     prevButton.textContent = 'Previous';
     prevButton.className = 'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed';
@@ -308,11 +215,12 @@ function renderPaginationControls() {
     prevButton.addEventListener('click', () => {
         currentPage--;
         renderGames();
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); // Scroll to top of page for better UX
     });
     paginationControls.appendChild(prevButton);
 
-    const maxPageButtons = 5;
+    // Page number buttons (simplified logic for many pages to avoid too many buttons)
+    const maxPageButtons = 5; // Max number of page buttons to show (e.g., 1 ... 4 5 6 ... 10)
     let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
     let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
 
@@ -341,7 +249,7 @@ function renderPaginationControls() {
         pageButton.addEventListener('click', () => {
             currentPage = i;
             renderGames();
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0); // Scroll to top of page
         });
         paginationControls.appendChild(pageButton);
     }
@@ -360,6 +268,7 @@ function renderPaginationControls() {
         paginationControls.appendChild(lastPageButton);
     }
 
+    // Next button
     const nextButton = document.createElement('button');
     nextButton.textContent = 'Next';
     nextButton.className = 'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed';
@@ -367,74 +276,104 @@ function renderPaginationControls() {
     nextButton.addEventListener('click', () => {
         currentPage++;
         renderGames();
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); // Scroll to top of page
     });
     paginationControls.appendChild(nextButton);
 }
 
 
+/**
+ * Handles search functionality.
+ */
+// Using debounce for search input to prevent excessive function calls on rapid typing
+let searchTimeout;
+searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        applyFiltersAndSort(); // No need to pass query, it's read directly from input
+    }, 300); // 300ms delay after user stops typing
+});
+
+/**
+ * Handles filter change (e.g., genre or game mode).
+ */
+genreFilter.addEventListener('change', applyFiltersAndSort);
+gamemodeFilter.addEventListener('change', applyFiltersAndSort);
+
+/**
+ * Handles sort order change.
+ */
+sortBy.addEventListener('change', applyFiltersAndSort);
+
+
+/**
+ * Applies all active filters, search query, and sort order to the global games array.
+ * Then triggers rendering.
+ */
 function applyFiltersAndSort() {
-    let currentGames = [...allGames];
+    let currentGames = [...allGames]; // Start with a fresh copy of all games
 
-    if (searchInput) {
-        const searchQuery = searchInput.value.toLowerCase().trim();
-        if (searchQuery) {
-            currentGames = currentGames.filter(game =>
-                game.name.toLowerCase().includes(searchQuery) ||
-                (game.storyline && game.storyline.toLowerCase().includes(searchQuery)) ||
-                (game.summary && game.summary.toLowerCase().includes(searchQuery)) ||
-                (formatGameData(game).keywords !== 'N/A' && formatGameData(game).keywords.toLowerCase().includes(searchQuery))
-            );
+    const searchQuery = searchInput.value.toLowerCase().trim();
+    const selectedGenre = genreFilter.value;
+    const selectedGameMode = gamemodeFilter.value;
+    const sortValue = sortBy.value;
+
+    // 1. Apply Search
+    if (searchQuery) {
+        currentGames = currentGames.filter(game =>
+            game.name.toLowerCase().includes(searchQuery) ||
+            (game.storyline && game.storyline.toLowerCase().includes(searchQuery)) ||
+            (game.summary && game.summary.toLowerCase().includes(searchQuery)) ||
+            // Check keywords field from formatted data, which is a string
+            (formatGameData(game).keywords !== 'N/A' && formatGameData(game).keywords.toLowerCase().includes(searchQuery))
+        );
+    }
+
+    // 2. Apply Filters (Genre and Game Mode)
+    // Filter based on the formatted string versions of genres and game modes
+    if (selectedGenre) {
+        currentGames = currentGames.filter(game => formatGameData(game).genres.includes(selectedGenre));
+    }
+
+    if (selectedGameMode) {
+        currentGames = currentGames.filter(game => formatGameData(game).gameModes.includes(selectedGameMode));
+    }
+
+    // 3. Apply Sort
+    currentGames.sort((a, b) => {
+        // Use raw data for sorting as it's typically numeric or direct string comparison
+        // and avoid re-formatting for every comparison if possible.
+        if (sortValue === 'name_asc') {
+            return a.name.localeCompare(b.name);
+        } else if (sortValue === 'name_desc') {
+            return b.name.localeCompare(a.name);
+        } else if (sortValue === 'rating_desc') {
+            const ratingA = parseFloat(a.total_rating) || -Infinity;
+            const ratingB = parseFloat(b.total_rating) || -Infinity;
+            return ratingB - ratingA;
+        } else if (sortValue === 'rating_asc') {
+            const ratingA = parseFloat(a.total_rating) || Infinity;
+            const ratingB = parseFloat(b.total_rating) || Infinity;
+            return ratingA - ratingB;
         }
-    }
+        return 0; // No sort or invalid value
+    });
 
-    if (genreFilter) {
-        const selectedGenre = genreFilter.value;
-        if (selectedGenre) {
-            currentGames = currentGames.filter(game => formatGameData(game).genres.includes(selectedGenre));
-        }
-    }
-
-    if (gamemodeFilter) {
-        const selectedGameMode = gamemodeFilter.value;
-        if (selectedGameMode) {
-            currentGames = currentGames.filter(game => formatGameData(game).gameModes.includes(selectedGameMode));
-        }
-    }
-
-    if (sortBy) {
-        const sortValue = sortBy.value;
-        currentGames.sort((a, b) => {
-            if (sortValue === 'name_asc') {
-                return a.name.localeCompare(b.name);
-            } else if (sortValue === 'name_desc') {
-                return b.name.localeCompare(a.name);
-            } else if (sortValue === 'rating_desc') {
-                const ratingA = parseFloat(a.total_rating) || -Infinity;
-                const ratingB = parseFloat(b.total_rating) || -Infinity;
-                return ratingB - ratingA;
-            } else if (sortValue === 'rating_asc') {
-                const ratingA = parseFloat(a.total_rating) || Infinity;
-                const ratingB = parseFloat(b.total_rating) || Infinity;
-                return ratingA - ratingB;
-            }
-            return 0;
-        });
-    }
-
+    // Update the global filtered and sorted array
     filteredAndSortedGames = currentGames;
-    currentPage = 1;
-    renderGames();
+    currentPage = 1; // Reset to first page after applying filters/sort/search
+    renderGames(); // Re-render the games with new data
 }
 
-
+/**
+ * Populates filter dropdowns with unique options from the loaded game data.
+ */
 function populateFilters() {
-    if (!genreFilter || !gamemodeFilter) return;
-
     const allGenres = new Set();
     const allGameModes = new Set();
 
     allGames.forEach(game => {
+        // We need to format the data temporarily to get the joined string values for filters
         const formatted = formatGameData(game);
 
         formatted.genres.split(', ').forEach(genre => {
@@ -445,7 +384,8 @@ function populateFilters() {
         });
     });
 
-    genreFilter.innerHTML = '<option value="">All Genres</option>';
+    // Populate Genre filter
+    genreFilter.innerHTML = '<option value="">All Genres</option>'; // Reset
     Array.from(allGenres).sort().forEach(genre => {
         const option = document.createElement('option');
         option.value = genre;
@@ -453,7 +393,8 @@ function populateFilters() {
         genreFilter.appendChild(option);
     });
 
-    gamemodeFilter.innerHTML = '<option value="">All Game Modes</option>';
+    // Populate Game Mode filter
+    gamemodeFilter.innerHTML = '<option value="">All Game Modes</option>'; // Reset
     Array.from(allGameModes).sort().forEach(mode => {
         const option = document.createElement('option');
         option.value = mode;
@@ -463,49 +404,19 @@ function populateFilters() {
 }
 
 
-// --- Main Initialization Logic ---
+// --- Initialization ---
+/**
+ * Initializes the application.
+ * Fetches data, populates filters, and renders the initial game list.
+ */
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Initialize header features (menu, theme toggle) on all pages FIRST
-    initializeHeaderFeatures(); // This will now assign the header DOM elements
+    // 1. Fetch all game data
+    allGames = await fetchGameData();
 
-    // 2. Then, get references to game-specific DOM elements
-    gameListContainer = document.getElementById('game-list');
-    paginationControls = document.getElementById('pagination-controls');
-    searchInput = document.getElementById('search-input');
-    genreFilter = document.getElementById('genre-filter');
-    gamemodeFilter = document.getElementById('gamemode-filter');
-    sortBy = document.getElementById('sort-by');
+    // 2. Populate filter dropdowns based on all loaded games
+    populateFilters();
 
-    // 3. ONLY perform game data related operations if on index.html
-    if (gameListContainer) { // Check for an element unique to index.html's main content
-        // Add event listeners for filters/sort only if elements exist
-        if (searchInput) {
-            let searchTimeout;
-            searchInput.addEventListener('input', () => {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    applyFiltersAndSort();
-                }, 300);
-            });
-        }
-        if (genreFilter) {
-            genreFilter.addEventListener('change', applyFiltersAndSort);
-        }
-        if (gamemodeFilter) {
-            gamemodeFilter.addEventListener('change', applyFiltersAndSort);
-        }
-        if (sortBy) {
-            sortBy.addEventListener('change', applyFiltersAndSort);
-        }
-
-        // Fetch all game data
-        allGames = await fetchGameData();
-
-        // Populate filter dropdowns based on all loaded games
-        populateFilters();
-
-        // Initialize filteredAndSortedGames with all games and render the first page
-        filteredAndSortedGames = [...allGames];
-        renderGames();
-    }
+    // 3. Initialize filteredAndSortedGames with all games and render the first page
+    filteredAndSortedGames = [...allGames]; // Start with all games
+    renderGames();
 });
