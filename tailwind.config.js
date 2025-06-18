@@ -4,6 +4,7 @@ module.exports = {
     "./index.html",
     "./about.html",
     "./sources.html",
+    "./src/components/header.html",
     "./src/**/*.{js,ts,jsx,tsx}", // Catching all JS files in src and its subdirectories
   ],
   theme: {
