@@ -29,6 +29,110 @@ const gamemodeFilter = document.getElementById('gamemode-filter');
 const sortBy = document.getElementById('sort-by');
 
 
+//Deepseek
+// Funkcja inicjalizująca nagłówek
+async function initHeader() {
+    // Ładowanie header.html
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (!headerPlaceholder) return;
+
+    try {
+        const response = await fetch('./src/components/header.html');
+        if (!response.ok) throw new Error('Failed to load header');
+        headerPlaceholder.innerHTML = await response.text();
+        initMenu();
+    } catch (error) {
+        console.error('Error loading header:', error);
+    }
+}
+
+// Funkcja obsługująca menu
+function initMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    const desktopMenuButton = document.getElementById('desktop-menu-button');
+    const desktopDropdown = document.getElementById('desktop-dropdown');
+
+    // Funkcja pomocnicza do zarządzania obramowaniem
+    const toggleButtonBorder = (button, isActive) => {
+        if (button) {
+            button.classList.toggle('border-blue-400', isActive);
+            button.classList.toggle('border-transparent', !isActive);
+        }
+    };
+
+    // Obsługa menu mobilnego
+    if (mobileMenuButton && mobileDropdown) {
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpening = mobileDropdown.classList.toggle('hidden');
+
+            // Aktualizacja obramowania
+            toggleButtonBorder(mobileMenuButton, !isOpening);
+
+            // Ustawienie pozycji menu
+            if (!isOpening) {
+                const rect = mobileMenuButton.getBoundingClientRect();
+                mobileDropdown.style.top = `${rect.bottom + window.scrollY + 10}px`;
+                mobileDropdown.style.right = `${window.innerWidth - rect.right}px`;
+            }
+        });
+    }
+
+    // Obsługa menu desktopowego
+    if (desktopMenuButton && desktopDropdown) {
+        desktopMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpening = desktopDropdown.classList.toggle('hidden');
+
+            // Aktualizacja obramowania
+            toggleButtonBorder(desktopMenuButton, !isOpening);
+        });
+    }
+
+    // Zamykanie menu po kliknięciu poza nim
+    document.addEventListener('click', (e) => {
+        // Sprawdzanie menu mobilnego
+        if (mobileDropdown && !mobileDropdown.contains(e.target) &&
+            mobileMenuButton && !mobileMenuButton.contains(e.target)) {
+            mobileDropdown.classList.add('hidden');
+            toggleButtonBorder(mobileMenuButton, false);
+        }
+
+        // Sprawdzanie menu desktopowego
+        if (desktopDropdown && !desktopDropdown.contains(e.target) &&
+            desktopMenuButton && !desktopMenuButton.contains(e.target)) {
+            desktopDropdown.classList.add('hidden');
+            toggleButtonBorder(desktopMenuButton, false);
+        }
+    });
+
+    // Obsługa zmiany rozmiaru okna
+    window.addEventListener('resize', () => {
+        // Reset menu mobilnego na desktopie
+        if (window.innerWidth >= 768 && mobileDropdown) {
+            mobileDropdown.classList.add('hidden');
+            toggleButtonBorder(mobileMenuButton, false);
+        }
+
+        // Reset menu desktopowego na mobile
+        if (window.innerWidth < 768 && desktopDropdown) {
+            desktopDropdown.classList.add('hidden');
+            toggleButtonBorder(desktopMenuButton, false);
+        }
+    });
+
+    // Inicjalizacja początkowa - upewniamy się, że obramowanie jest wyłączone
+    toggleButtonBorder(mobileMenuButton, false);
+    toggleButtonBorder(desktopMenuButton, false);
+}
+
+// Inicjalizacja po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', () => {
+    initHeader();
+});
+
+
 // --- Utility Functions ---
 
 /**
