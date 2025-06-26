@@ -1,4 +1,22 @@
-<!-- src/components/header.html -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="src/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="src/assets/favicon/site.webmanifest" />
+</head>
 <header class="bg-gray-800 py-4 shadow-md">
     <div class="container mx-auto px-4 flex justify-between items-center">
         <!-- Logo / Nazwa strony -->
