@@ -39,22 +39,22 @@ async function initHeader() {
         if (!response.ok) throw new Error('Failed to load header');
         headerPlaceholder.innerHTML = await response.text();
 
-        // Dodanie podstawowego stylowania, jeśli header nie zawiera własnych styli
-        const headerElement = headerPlaceholder.querySelector('header');
-        if (headerElement) {
-            headerElement.classList.add('bg-gray-900', 'text-white', 'p-4', 'shadow-md');
-        }
+        // Mocna asekuracja, po Dodanie podstawowego stylowania, jeśli header nie zawiera własnych styli
+        // const headerElement = headerPlaceholder.querySelector('header');
+        // if (headerElement) {
+        //     headerElement.classList.add('bg-gray-900', 'text-white', 'p-4', 'shadow-md');
+        // }
 
         initMenu();
     } catch (error) {
         console.error('Error loading header:', error);
-        // Fallback - podstawowy header
-        headerPlaceholder.innerHTML = `
-            <header class="bg-gray-900 text-white p-4 shadow-md">
-                <h1 class="text-xl font-bold">GameDB</h1>
-                <p class="text-sm text-gray-400">Basic header fallback</p>
-            </header>
-        `;
+        // mocna asekuracja AI. Fallback - podstawowy header
+        // headerPlaceholder.innerHTML = `
+        //     <header class="bg-gray-900 text-white p-4 shadow-md">
+        //         <h1 class="text-xl font-bold">GameDB</h1>
+        //         <p class="text-sm text-gray-400">Basic header fallback</p>
+        //     </header>
+        // `;
     }
 }
 
@@ -68,19 +68,19 @@ async function loadFooter() {
         if (!response.ok) throw new Error('Failed to load footer');
         footerPlaceholder.innerHTML = await response.text();
 
-        // Dodanie podstawowego stylowania, jeśli footer nie zawiera własnych styli
-        const footerElement = footerPlaceholder.querySelector('footer');
-        if (footerElement) {
-            footerElement.classList.add('bg-gray-900', 'text-white', 'p-4', 'mt-8', 'border-t', 'border-gray-800');
-        }
+        // // Dodanie podstawowego stylowania, jeśli footer nie zawiera własnych styli
+        // const footerElement = footerPlaceholder.querySelector('footer');
+        // if (footerElement) {
+        //     footerElement.classList.add('bg-gray-900', 'text-white', 'p-4', 'mt-8', 'border-t', 'border-gray-800');
+        // }
     } catch (error) {
         console.error('Error loading footer:', error);
-        // Fallback - podstawowy footer
-        footerPlaceholder.innerHTML = `
-            <footer class="bg-gray-900 text-white p-4 mt-8 border-t border-gray-800">
-                <p class="text-center text-sm text-gray-400">© ${new Date().getFullYear()} GameDB - Basic footer fallback</p>
-            </footer>
-        `;
+        // // Fallback - podstawowy footer
+        // footerPlaceholder.innerHTML = `
+        //     <footer class="bg-gray-900 text-white p-4 mt-8 border-t border-gray-800">
+        //         <p class="text-center text-sm text-gray-400">© ${new Date().getFullYear()} GameDB - Basic footer fallback</p>
+        //     </footer>
+        // `;
     }
 }
 
