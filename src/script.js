@@ -171,6 +171,37 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFooter();
 });
 
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', () => {
+    let currentIndex = 0;
+    const carousel = document.getElementById('carousel');
+    // Zabezpieczenie przed brakiem elementu
+    if (!carousel) {
+        console.error('Carousel element not found');
+        return;
+    }
+    const prevButton = document.querySelector('button[aria-label="Previous slide"]');
+    const nextButton = document.querySelector('button[aria-label="Next slide"]');
+    if (!prevButton || !nextButton) {
+        console.error('Navigation buttons not found');
+        return;
+    }
+    const slides = carousel.children.length;
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides) % slides;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+    setInterval(nextSlide, 4000);
+});
+
 
 // --- Utility Functions ---
 
