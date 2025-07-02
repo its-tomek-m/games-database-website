@@ -35,7 +35,7 @@ async function initHeader() {
     if (!headerPlaceholder) return;
 
     try {
-        const response = await fetch('./src/components/header.html');
+        const response = await fetch('/src/components/header.html');
         if (!response.ok) throw new Error('Failed to load header');
         headerPlaceholder.innerHTML = await response.text();
 
@@ -64,7 +64,7 @@ async function loadFooter() {
     if (!footerPlaceholder) return;
 
     try {
-        const response = await fetch('./src/components/footer.html');
+        const response = await fetch('/src/components/footer.html');
         if (!response.ok) throw new Error('Failed to load footer');
         footerPlaceholder.innerHTML = await response.text();
 
@@ -176,16 +176,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const carousel = document.getElementById('carousel');
     // Zabezpieczenie przed brakiem elementu
-    if (!carousel) {
-        console.error('Carousel element not found');
-        return;
-    }
+    // if (!carousel) {
+    //     console.error('Carousel element not found');
+    //     return;
+    // }
     const prevButton = document.querySelector('button[aria-label="Previous slide"]');
     const nextButton = document.querySelector('button[aria-label="Next slide"]');
-    if (!prevButton || !nextButton) {
-        console.error('Navigation buttons not found');
-        return;
-    }
+    // if (!prevButton || !nextButton) {
+    //     console.error('Navigation buttons not found');
+    //     return;
+    // }
     const slides = carousel.children.length;
 
     function nextSlide() {
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function fetchGameData() {
     try {
-        const response = await fetch('./data/dummy_games.json');
+        const response = await fetch('/data/dummy_games.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
