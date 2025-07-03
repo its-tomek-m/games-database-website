@@ -310,10 +310,15 @@ function renderGameItem(game) {
     ).join('');
 
     // Basic view (always visible)
+    // Age rating row: <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
     gameItem.innerHTML = `
-        <div class="flex flex-col md:grid md:grid-cols-5 gap-4 items-start font-bold text-lg">
+        <div class="flex flex-col md:grid md:grid-cols-6 gap-4 items-start font-bold text-lg">
             <div class="text-blue-400 text-xl md:col-span-1">${game.name}</div>
             <div class="text-base text-gray-300 md:col-span-2">${game.summary}</div>
+            <div class="text-right">
+            <span class="text-blue-300">Age Ratings:</span>
+            <span class="text-gray-300 text-base">${ageRatingDisplay}</span>
+            </div>
             <div class="text-blue-300 text-right">Rating: ${game.rating}</div>
             <div class="text-gray-400 text-right text-sm">Votes: ${game.totalRatingCount}</div>
             <div class="text-gray-300 text-base md:col-span-5">Genres: ${game.genres}</div>
@@ -327,7 +332,6 @@ function renderGameItem(game) {
             <p class="mb-2"><span class="font-semibold text-blue-300">Split screen:</span> ${game.splitScreen}</p>
             <p class="mb-2"><span class="font-semibold text-blue-300">Player Perspectives:</span> ${game.perspectives}</p>
             <p class="mb-2"><span class="font-semibold text-blue-300">Platforms:</span> ${game.platforms}</p>
-            <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
             <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
             <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
             ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
