@@ -16,7 +16,7 @@ let filteredAndSortedGames = [];
 // Current page number for pagination
 let currentPage = 1;
 // Number of games to display per page
-const gamesPerPage = 20; // Set to a smaller number for testing with dummy data if needed, e.g., 2
+const gamesPerPage = 4; // Set to a smaller number for testing with dummy data if needed, e.g., 2
 const ageRatingSystems = ['ESRB', 'PEGI', 'USK', 'CERO']; // Defined age rating systems to display
 
 
@@ -313,29 +313,46 @@ function renderGameItem(game) {
     // Age rating row: <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
     gameItem.innerHTML = `
         <div class="flex flex-col md:grid md:grid-cols-6 gap-4 items-start font-bold text-lg">
-            <div class="text-blue-400 text-xl md:col-span-1">${game.name}</div>
-            <div class="text-base text-gray-300 md:col-span-2">${game.summary}</div>
-            <div class="text-right">
+    <div class="text-blue-400 text-xl md:col-span-1 w-full">${game.name}</div>
+    <div class="text-base text-gray-300 md:col-span-2 w-full">${game.summary}</div>
+    
+    <div class="flex flex-row w-full md:grid md:grid-cols-4 md:gap-4 md:col-span-3">
+        <div class="text-right w-1/4 md:w-full">
             <span class="text-blue-300">Age Ratings:</span>
-            <span class="text-gray-300 text-base">${ageRatingDisplay}</span>
-            </div>
-            <div class="text-blue-300 text-right">Rating: ${game.rating}</div>
-            <div class="text-gray-400 text-right text-sm">Votes: ${game.totalRatingCount}</div>
-            <div class="text-gray-300 text-base md:col-span-5">Genres: ${game.genres}</div>
+            <span class="text-gray-300 text-base block">${ageRatingDisplay}</span>
         </div>
-        <div class="game-details mt-4 p-4 border-t border-gray-700 hidden text-sm">
-            <p class="mb-2"><span class="font-semibold text-blue-300">Storyline:</span> ${game.storyline}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Game Modes:</span> ${game.gameModes}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Keywords:</span> ${game.keywords}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Supported Languages:</span> ${game.languages}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Offline Co-Op:</span> ${game.offlineCoOp}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Split screen:</span> ${game.splitScreen}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Player Perspectives:</span> ${game.perspectives}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Platforms:</span> ${game.platforms}</p>
-            <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
-            <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
-            ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+        
+        <div class="text-right w-1/4 md:w-full">
+            <span class="text-blue-300">Rating:</span>
+            <span class="text-gray-300 text-base block">${game.rating}</span>
         </div>
+        
+        <div class="text-right w-1/4 md:w-full">
+            <span class="text-blue-300">Votes:</span>
+            <span class="text-gray-300 text-base block">${game.totalRatingCount}</span>
+        </div>
+        
+        <div class="text-right w-1/4 md:w-full">
+            <span class="text-blue-300">Genres:</span>
+            <span class="text-gray-300 text-base block">${game.genres}</span>
+        </div>
+    </div>
+    
+</div>
+<div class="game-details mt-4 p-4 border-t border-gray-700 hidden text-sm">
+    <p class="mb-2"><span class="font-semibold text-blue-300">Storyline:</span> ${game.storyline}</p>
+    <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Game Modes:</span> ${game.gameModes}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Keywords:</span> ${game.keywords}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Supported Languages:</span> ${game.languages}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Offline Co-Op:</span> ${game.offlineCoOp}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Split screen:</span> ${game.splitScreen}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Player Perspectives:</span> ${game.perspectives}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Platforms:</span> ${game.platforms}</p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
+    <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
+    ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+</div>
     `;
 
     // Add click event listener to toggle details
