@@ -1,11 +1,17 @@
 [
   {
-    "id": 1,
-    "name": "The Witcher 3: Wild Hunt",
-    "storyline": "Geralt of Rivia, a monster hunter, embarks on a long journey to find Ciri, a child of prophecy, in a vast, war-torn world. His search is intertwined with the fate of the Northern Kingdoms and the powerful Wild Hunt.",
-    "summary": "A sprawling fantasy RPG with an emphasis on choice and consequence, exploring a rich world filled with moral ambiguities, memorable characters, and dangerous monsters. Features deep combat, crafting, and an engaging narrative.",
-    "total_rating": 9333.2,
-    "total_rating_count": 125000,
+    "id": 7344,
+    "name": "Ori and the Blind Forest",
+    "storyline": "Ori, the protagonist of the game, falls from the Spirit Tree and is adopted by Naru, who raises Ori as her own. When a disastrous event occurs causing the forest to wither and Naru to die, Ori is left to explore the forest. Ori eventually encounters Sein, who begins to guide Ori on an adventure to restore the forest through the recovery of the light of three main elements supporting the balance of the forest: waters, winds and warmth.",
+    "summary": "The forest of Nibel is dying. After a powerful storm sets a series of devastating events in motion, an unlikely hero must journey to find his courage and confront a dark nemesis to save his home. Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios for Xbox One and PC. Featuring hand-painted artwork, meticulously animated character performance, and a fully orchestrated score, Ori and the Blind Forest explores a deeply emotional story about love and sacrifice, and the hope that exists in us all.",
+    "total_rating": 87.50970811060691,
+    "total_rating_count": 1320,
+    "cover": [
+      {
+        "id": 90865,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/co1y41.jpg"
+      }
+    ],
     "game_modes": [
       {
         "id": 1,
@@ -14,77 +20,284 @@
         }
       }
     ],
-    "keywords": [
-      {
-        "id": 1,
-        "keyword": {
-          "name": "fantasy"
-        }
-      },
-      {
-        "id": 2,
-        "keyword": {
-          "name": "rpg"
-        }
-      },
-      {
-        "id": 3,
-        "keyword": {
-          "name": "open world"
-        }
-      }
-    ],
-    "language_supports": [
-      {
-        "id": 1,
-        "language": {
-          "name": "English"
-        }
-      },
-      {
-        "id": 2,
-        "language": {
-          "name": "Polish"
-        }
-      },
-      {
-        "id": 3,
-        "language": {
-          "name": "German"
-        }
-      }
-    ],
     "genres": [
       {
-        "id": 1,
+        "id": 8,
         "genre": {
-          "name": "Role-playing (RPG)"
+          "name": "Platform"
         }
       },
       {
-        "id": 2,
+        "id": 9,
+        "genre": {
+          "name": "Puzzle"
+        }
+      },
+      {
+        "id": 31,
         "genre": {
           "name": "Adventure"
         }
       }
     ],
+    "platforms": [
+      {
+        "id": 6,
+        "platform": {
+          "name": "PC (Microsoft Windows)"
+        }
+      },
+      {
+        "id": 49,
+        "platform": {
+          "name": "Xbox One"
+        }
+      },
+      {
+        "id": 130,
+        "platform": {
+          "name": "Nintendo Switch"
+        }
+      }
+    ],
     "player_perspectives": [
       {
-        "id": 1,
+        "id": 4,
         "player_perspective": {
-          "name": "Third-person"
+          "name": "Side view"
+        }
+      }
+    ],
+    "language_supports": [
+      {
+        "id": 270932,
+        "language": {
+          "name": "German"
+        }
+      },
+      {
+        "id": 270926,
+        "language": {
+          "name": "French"
+        }
+      },
+      {
+        "id": 270942,
+        "language": {
+          "name": "Japanese"
+        }
+      },
+      {
+        "id": 270920,
+        "language": {
+          "name": "English"
+        }
+      },
+      {
+        "id": 270952,
+        "language": {
+          "name": "Portuguese (Brazil)"
+        }
+      },
+      {
+        "id": 270930,
+        "language": {
+          "name": "Italian"
+        }
+      },
+      {
+        "id": 270950,
+        "language": {
+          "name": "Chinese (Simplified)"
+        }
+      },
+      {
+        "id": 270946,
+        "language": {
+          "name": "Russian"
+        }
+      },
+      {
+        "id": 270938,
+        "language": {
+          "name": "Spanish (Spain)"
+        }
+      }
+    ],
+    "screenshots": [
+      {
+        "id": 5746,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/v2pnld98yq2xvs788c4o.jpg"
+      },
+      {
+        "id": 5749,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/ritdwffctzicqdpz44lz.jpg"
+      },
+      {
+        "id": 5748,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/qg1jc1rqlwyp9bh4cyvz.jpg"
+      },
+      {
+        "id": 5745,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/mflx0tyq2wusao1wq2ad.jpg"
+      },
+      {
+        "id": 5747,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/qw0ciwlf01lqiutfg92c.jpg"
+      },
+      {
+        "id": 267707,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkb.jpg"
+      },
+      {
+        "id": 267708,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkc.jpg"
+      },
+      {
+        "id": 267709,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkd.jpg"
+      },
+      {
+        "id": 267712,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkg.jpg"
+      },
+      {
+        "id": 267710,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qke.jpg"
+      },
+      {
+        "id": 267711,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkf.jpg"
+      },
+      {
+        "id": 267713,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/sc5qkh.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "id": 7841,
+        "name": "Trailer",
+        "video_id": "cklw-Yu3moE"
+      }
+    ],
+    "websites": [
+      {
+        "id": 126732,
+        "url": "https://en.wikipedia.org/wiki/Ori_and_the_Blind_Forest"
+      },
+      {
+        "id": 137280,
+        "url": "https://twitter.com/OriTheGame"
+      },
+      {
+        "id": 137279,
+        "url": "https://www.facebook.com/orithegame"
+      },
+      {
+        "id": 333495,
+        "url": "https://www.twitch.tv/directory/game/Ori%20and%20the%20Blind%20Forest"
+      },
+      {
+        "id": 47517,
+        "url": "http://www.oriblindforest.com/"
+      },
+      {
+        "id": 47518,
+        "url": "https://store.steampowered.com/app/261570"
+      }
+    ],
+    "age_ratings": [
+      {
+        "id": 46015,
+        "category": 9,
+        "rating": "7",
+        "rating_category": {
+          "id": 9,
+          "name": "PEGI",
+          "rating": "7"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Violence"
+          }
+        ]
+      },
+      {
+        "id": 67432,
+        "category": 13,
+        "rating": "A",
+        "rating_category": {
+          "id": 13,
+          "name": "CERO",
+          "rating": "A"
+        },
+        "content_descriptions": []
+      },
+      {
+        "id": 58555,
+        "category": 3,
+        "rating": "E",
+        "rating_category": {
+          "id": 3,
+          "name": "ESRB",
+          "rating": "E"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Mild Fantasy Violence"
+          }
+        ]
+      }
+    ],
+    "keywords": []
+  },
+  {
+    "id": 14593,
+    "name": "Hollow Knight",
+    "storyline": "N/A",
+    "summary": "A 2D metroidvania with an emphasis on close combat and exploration in which the player enters the once-prosperous now-bleak insect kingdom of Hallownest, travels through its various districts, meets friendly inhabitants, fights hostile ones and uncovers the kingdom's history while improving their combat abilities and movement arsenal by fighting bosses and accessing out-of-the-way areas.",
+    "total_rating": 91.69693362592955,
+    "total_rating_count": 1708,
+    "cover": [
+      {
+        "id": 424251,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/co93cr.jpg"
+      }
+    ],
+    "game_modes": [
+      {
+        "id": 1,
+        "game_mode": {
+          "name": "Single player"
+        }
+      }
+    ],
+    "genres": [
+      {
+        "id": 8,
+        "genre": {
+          "name": "Platform"
+        }
+      },
+      {
+        "id": 31,
+        "genre": {
+          "name": "Adventure"
+        }
+      },
+      {
+        "id": 32,
+        "genre": {
+          "name": "Indie"
         }
       }
     ],
     "platforms": [
       {
-        "id": 1,
-        "platform": {
-          "name": "PC"
-        }
-      },
-      {
-        "id": 2,
+        "id": 48,
         "platform": {
           "name": "PlayStation 4"
         }
@@ -92,781 +305,337 @@
       {
         "id": 3,
         "platform": {
+          "name": "Linux"
+        }
+      },
+      {
+        "id": 6,
+        "platform": {
+          "name": "PC (Microsoft Windows)"
+        }
+      },
+      {
+        "id": 14,
+        "platform": {
+          "name": "Mac"
+        }
+      },
+      {
+        "id": 41,
+        "platform": {
+          "name": "Wii U"
+        }
+      },
+      {
+        "id": 49,
+        "platform": {
           "name": "Xbox One"
         }
       },
       {
-        "id": 4,
+        "id": 130,
         "platform": {
           "name": "Nintendo Switch"
         }
       }
     ],
-    "screenshots": [
+    "player_perspectives": [
       {
-        "id": 1,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc859.jpg"
+        "id": 4,
+        "player_perspective": {
+          "name": "Side view"
+        }
+      }
+    ],
+    "language_supports": [
+      {
+        "id": 30196,
+        "language": {
+          "name": "French"
+        }
       },
       {
-        "id": 2,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc860.jpg"
+        "id": 30192,
+        "language": {
+          "name": "English"
+        }
+      },
+      {
+        "id": 30197,
+        "language": {
+          "name": "German"
+        }
+      },
+      {
+        "id": 30200,
+        "language": {
+          "name": "Spanish (Spain)"
+        }
+      },
+      {
+        "id": 30217,
+        "language": {
+          "name": "Russian"
+        }
+      },
+      {
+        "id": 30218,
+        "language": {
+          "name": "Japanese"
+        }
+      },
+      {
+        "id": 30213,
+        "language": {
+          "name": "Portuguese (Brazil)"
+        }
+      },
+      {
+        "id": 30204,
+        "language": {
+          "name": "Korean"
+        }
+      },
+      {
+        "id": 30207,
+        "language": {
+          "name": "Chinese (Simplified)"
+        }
+      },
+      {
+        "id": 30209,
+        "language": {
+          "name": "Italian"
+        }
+      },
+      {
+        "id": 516033,
+        "language": {
+          "name": "Portuguese (Portugal)"
+        }
+      }
+    ],
+    "screenshots": [
+      {
+        "id": 42705,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/p3svrq6ewzxnn7p1a3v9.jpg"
+      },
+      {
+        "id": 42707,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/ityinxmtkakwbokpcwws.jpg"
+      },
+      {
+        "id": 42706,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/bkgxmg2m4h8wf5g9tblh.jpg"
+      },
+      {
+        "id": 42708,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/a3f72xprqkfuqdmha5ks.jpg"
+      },
+      {
+        "id": 42709,
+        "url": "//images.igdb.com/igdb/image/upload/t_logo_med/q634ullxbvipm6q6mcq9.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "id": 6259,
+        "name": "Gameplay video",
+        "video_id": "BzvlMtvaJ8I"
+      },
+      {
+        "id": 6258,
+        "name": "Trailer",
+        "video_id": "Y2amTl5lBYM"
+      },
+      {
+        "id": 12058,
+        "name": "Trailer",
+        "video_id": "UAO2urG23S4"
+      },
+      {
+        "id": 20654,
+        "name": "Trailer",
+        "video_id": "kWo5g-tsBNk"
+      },
+      {
+        "id": 6260,
+        "name": "Trailer",
+        "video_id": "0GXyV9EvB_g"
+      },
+      {
+        "id": 8609,
+        "name": "Trailer",
+        "video_id": "U8lbFP8i730"
+      },
+      {
+        "id": 21764,
+        "name": "Trailer",
+        "video_id": "-qVVO69Cgcs"
+      }
+    ],
+    "websites": [
+      {
+        "id": 813226,
+        "url": "https://store.playstation.com/en-us/concept/232654"
+      },
+      {
+        "id": 813467,
+        "url": "https://www.nintendo.com/us/store/products/hollow-knight-switch/"
+      },
+      {
+        "id": 12133,
+        "url": "https://store.steampowered.com/app/367520"
+      },
+      {
+        "id": 61835,
+        "url": "https://en.wikipedia.org/wiki/Hollow_Knight"
+      },
+      {
+        "id": 204060,
+        "url": "http://hollowknight.com/"
+      },
+      {
+        "id": 570386,
+        "url": "https://twitter.com/teamcherrygames"
+      },
+      {
+        "id": 118892,
+        "url": "https://www.gog.com/game/hollow_knight"
+      },
+      {
+        "id": 522471,
+        "url": "https://www.twitch.tv/directory/game/Hollow%20Knight"
+      },
+      {
+        "id": 204066,
+        "url": "https://www.reddit.com/r/HollowKnight"
+      },
+      {
+        "id": 204063,
+        "url": "https://www.facebook.com/HollowKnightGame"
+      },
+      {
+        "id": 204065,
+        "url": "https://discord.gg/invite/hollowknight"
+      },
+      {
+        "id": 570385,
+        "url": "https://www.youtube.com/@TeamCherry"
+      },
+      {
+        "id": 597112,
+        "url": "https://hollowknight.wiki/w/Hollow_Knight_(game)"
       }
     ],
     "age_ratings": [
       {
-        "id": 100,
-        "category": 1,
-        "rating": 1,
+        "id": 84852,
+        "category": 35,
+        "rating": "PG",
         "rating_category": {
-          "id": 1,
-          "name": "ESRB",
-          "rating": "M"
+          "id": 35,
+          "name": "ACB",
+          "rating": "PG"
+        },
+        "content_descriptions": []
+      },
+      {
+        "id": 205432,
+        "category": 24,
+        "rating": "12+",
+        "rating_category": {
+          "id": 24,
+          "name": "GRB",
+          "rating": "12+"
         },
         "content_descriptions": [
           {
             "id": 1,
-            "description": "Blood and Gore"
+            "description": "Violence"
+          }
+        ]
+      },
+      {
+        "id": 23050,
+        "category": 9,
+        "rating": "7",
+        "rating_category": {
+          "id": 9,
+          "name": "PEGI",
+          "rating": "7"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Violence"
+          }
+        ]
+      },
+      {
+        "id": 68161,
+        "category": 14,
+        "rating": "B",
+        "rating_category": {
+          "id": 14,
+          "name": "ESRB",
+          "rating": "B"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Violence"
+          }
+        ]
+      },
+      {
+        "id": 84851,
+        "category": 20,
+        "rating": "12",
+        "rating_category": {
+          "id": 20,
+          "name": "USK",
+          "rating": "12"
+        },
+        "content_descriptions": []
+      },
+      {
+        "id": 95707,
+        "category": 29,
+        "rating": "10",
+        "rating_category": {
+          "id": 29,
+          "name": "ClassInd",
+          "rating": "10"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Viol\u00eancia (Violence)"
+          }
+        ]
+      },
+      {
+        "id": 188507,
+        "category": 4,
+        "rating": "E10+",
+        "rating_category": {
+          "id": 4,
+          "name": "CERO",
+          "rating": "E10+"
+        },
+        "content_descriptions": [
+          {
+            "id": 1,
+            "description": "Fantasy Violence"
           },
           {
             "id": 2,
-            "description": "Intense Violence"
-          }
-        ]
-      },
-      {
-        "id": 101,
-        "category": 2,
-        "rating": 2,
-        "rating_category": {
-          "id": 2,
-          "name": "PEGI",
-          "rating": "18"
-        },
-        "content_descriptions": [
-          {
-            "id": 3,
-            "description": "Violence"
-          },
-          {
-            "id": 4,
-            "description": "Bad Language"
+            "description": "Mild Blood"
           }
         ]
       }
     ],
-    "videos": [
-      {
-        "id": 1,
-        "name": "Official Gameplay Trailer",
-        "video_id": "c0i88t0Kacs"
-      },
-      {
-        "id": 2,
-        "name": "Launch Trailer",
-        "video_id": "nYc_D97Wz7k"
-      }
-    ],
-    "websites": [
-      {
-        "id": 1,
-        "url": "https://thewitcher.com/"
-      },
-      {
-        "id": 2,
-        "url": "https://steam.com/witcher3"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Cyberpunk 2077",
-    "storyline": "In the sprawling megalopolis of Night City, V, a mercenary outlaw, pursues a one-of-a-kind implant that is the key to immortality. The choices made and relationships forged will determine V's destiny in this neon-drenched future.",
-    "summary": "An open-world, action-adventure RPG set in the dark future of Night City, a megalopolis obsessed with power, glamour and body modification. Take on the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
-    "total_rating": 78.5,
-    "total_rating_count": 98000,
-    "game_modes": [
-      {
-        "id": 1,
-        "game_mode": {
-          "name": "Single player"
-        }
-      },
-      {
-        "id": 2,
-        "game_mode": {
-          "name": "Multiplayer"
-        }
-      }
-    ],
-    "keywords": [
-      {
-        "id": 1,
-        "keyword": {
-          "name": "cyberpunk"
-        }
-      },
-      {
-        "id": 2,
-        "keyword": {
-          "name": "rpg"
-        }
-      },
-      {
-        "id": 3,
-        "keyword": {
-          "name": "open world"
-        }
-      }
-    ],
-    "language_supports": [
-      {
-        "id": 1,
-        "language": {
-          "name": "English"
-        }
-      },
-      {
-        "id": 2,
-        "language": {
-          "name": "Polish"
-        }
-      },
-      {
-        "id": 3,
-        "language": {
-          "name": "Japanese"
-        }
-      }
-    ],
-    "genres": [
-      {
-        "id": 1,
-        "genre": {
-          "name": "Role-playing (RPG)"
-        }
-      },
-      {
-        "id": 2,
-        "genre": {
-          "name": "Action"
-        }
-      }
-    ],
-    "player_perspectives": [
-      {
-        "id": 1,
-        "player_perspective": {
-          "name": "First-person"
-        }
-      }
-    ],
-    "platforms": [
-      {
-        "id": 1,
-        "platform": {
-          "name": "PC"
-        }
-      },
-      {
-        "id": 2,
-        "platform": {
-          "name": "PlayStation 5"
-        }
-      },
-      {
-        "id": 3,
-        "platform": {
-          "name": "Xbox Series X"
-        }
-      }
-    ],
-    "screenshots": [
-      {
-        "id": 1,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq6.jpg"
-      },
-      {
-        "id": 2,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq7.jpg"
-      }
-    ],
-    "age_ratings": [
-      {
-        "id": 200,
-        "category": 3,
-        "rating": 3,
-        "rating_category": {
-          "id": 3,
-          "name": "USK",
-          "rating": "18"
-        },
-        "content_descriptions": [
-          {
-            "id": 5,
-            "description": "Violence"
-          },
-          {
-            "id": 6,
-            "description": "Strong Language"
-          }
-        ]
-      },
-      {
-        "id": 201,
-        "category": 4,
-        "rating": 4,
-        "rating_category": {
-          "id": 4,
-          "name": "CERO",
-          "rating": "Z"
-        },
-        "content_descriptions": [
-          {
-            "id": 7,
-            "description": "Sexual Content"
-          },
-          {
-            "id": 8,
-            "description": "Drug Reference"
-          }
-        ]
-      }
-    ],
-    "videos": [
-      {
-        "id": 3,
-        "name": "Official Cinematic Trailer",
-        "video_id": "oJzS_rS4f54"
-      }
-    ],
-    "websites": [
-      {
-        "id": 3,
-        "url": "https://www.cyberpunk.net/"
-      },
-      {
-        "id": 4,
-        "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Cybe",
-    "storyline": "In the sprawling megalopolis of Night City, V, a mercenary outlaw, pursues a one-of-a-kind implant that is the key to immortality. The choices made and relationships forged will determine V's destiny in this neon-drenched future.",
-    "summary": "An open-world, action-adventure RPG set in the dark future of Night City, a megalopolis obsessed with power, glamour and body modification. Take on the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
-    "total_rating": 78.5,
-    "total_rating_count": 98000,
-    "game_modes": [
-      {
-        "id": 1,
-        "game_mode": {
-          "name": "Single player"
-        }
-      },
-      {
-        "id": 2,
-        "game_mode": {
-          "name": "Multiplayer"
-        }
-      }
-    ],
-    "keywords": [
-      {
-        "id": 1,
-        "keyword": {
-          "name": "cyberpunk"
-        }
-      },
-      {
-        "id": 2,
-        "keyword": {
-          "name": "rpg"
-        }
-      },
-      {
-        "id": 3,
-        "keyword": {
-          "name": "open world"
-        }
-      }
-    ],
-    "language_supports": [
-      {
-        "id": 1,
-        "language": {
-          "name": "English"
-        }
-      },
-      {
-        "id": 2,
-        "language": {
-          "name": "Polish"
-        }
-      },
-      {
-        "id": 3,
-        "language": {
-          "name": "Japanese"
-        }
-      }
-    ],
-    "genres": [
-      {
-        "id": 1,
-        "genre": {
-          "name": "Role-playing (RPG)"
-        }
-      },
-      {
-        "id": 2,
-        "genre": {
-          "name": "Action"
-        }
-      }
-    ],
-    "player_perspectives": [
-      {
-        "id": 1,
-        "player_perspective": {
-          "name": "First-person"
-        }
-      }
-    ],
-    "platforms": [
-      {
-        "id": 1,
-        "platform": {
-          "name": "PC"
-        }
-      },
-      {
-        "id": 2,
-        "platform": {
-          "name": "PlayStation 5"
-        }
-      },
-      {
-        "id": 3,
-        "platform": {
-          "name": "Xbox Series X"
-        }
-      }
-    ],
-    "screenshots": [
-      {
-        "id": 1,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq6.jpg"
-      },
-      {
-        "id": 2,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq7.jpg"
-      }
-    ],
-    "age_ratings": [
-      {
-        "id": 200,
-        "category": 3,
-        "rating": 3,
-        "rating_category": {
-          "id": 3,
-          "name": "USK",
-          "rating": "18"
-        },
-        "content_descriptions": [
-          {
-            "id": 5,
-            "description": "Violence"
-          },
-          {
-            "id": 6,
-            "description": "Strong Language"
-          }
-        ]
-      },
-      {
-        "id": 201,
-        "category": 4,
-        "rating": 4,
-        "rating_category": {
-          "id": 4,
-          "name": "CERO",
-          "rating": "Z"
-        },
-        "content_descriptions": [
-          {
-            "id": 7,
-            "description": "Sexual Content"
-          },
-          {
-            "id": 8,
-            "description": "Drug Reference"
-          }
-        ]
-      }
-    ],
-    "videos": [
-      {
-        "id": 3,
-        "name": "Official Cinematic Trailer",
-        "video_id": "oJzS_rS4f54"
-      }
-    ],
-    "websites": [
-      {
-        "id": 3,
-        "url": "https://www.cyberpunk.net/"
-      },
-      {
-        "id": 4,
-        "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "PPPPPPP7",
-    "storyline": "In the sprawling megalopolis of Night City, V, a mercenary outlaw, pursues a one-of-a-kind implant that is the key to immortality. The choices made and relationships forged will determine V's destiny in this neon-drenched future.",
-    "summary": "An open-world, action-adventure RPG set in the dark future of Night City, a megalopolis obsessed with power, glamour and body modification. Take on the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
-    "total_rating": 78.5,
-    "total_rating_count": 98000,
-    "game_modes": [
-      {
-        "id": 1,
-        "game_mode": {
-          "name": "Single player"
-        }
-      },
-      {
-        "id": 2,
-        "game_mode": {
-          "name": "Multiplayer"
-        }
-      }
-    ],
-    "keywords": [
-      {
-        "id": 1,
-        "keyword": {
-          "name": "cyberpunk"
-        }
-      },
-      {
-        "id": 2,
-        "keyword": {
-          "name": "rpg"
-        }
-      },
-      {
-        "id": 3,
-        "keyword": {
-          "name": "open world"
-        }
-      }
-    ],
-    "language_supports": [
-      {
-        "id": 1,
-        "language": {
-          "name": "English"
-        }
-      },
-      {
-        "id": 2,
-        "language": {
-          "name": "Polish"
-        }
-      },
-      {
-        "id": 3,
-        "language": {
-          "name": "Japanese"
-        }
-      }
-    ],
-    "genres": [
-      {
-        "id": 1,
-        "genre": {
-          "name": "Role-playing (RPG)"
-        }
-      },
-      {
-        "id": 2,
-        "genre": {
-          "name": "Action"
-        }
-      }
-    ],
-    "player_perspectives": [
-      {
-        "id": 1,
-        "player_perspective": {
-          "name": "First-person"
-        }
-      }
-    ],
-    "platforms": [
-      {
-        "id": 1,
-        "platform": {
-          "name": "PC"
-        }
-      },
-      {
-        "id": 2,
-        "platform": {
-          "name": "PlayStation 5"
-        }
-      },
-      {
-        "id": 3,
-        "platform": {
-          "name": "Xbox Series X"
-        }
-      }
-    ],
-    "screenshots": [
-      {
-        "id": 1,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq6.jpg"
-      },
-      {
-        "id": 2,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq7.jpg"
-      }
-    ],
-    "age_ratings": [
-      {
-        "id": 200,
-        "category": 3,
-        "rating": 3,
-        "rating_category": {
-          "id": 3,
-          "name": "USK",
-          "rating": "18"
-        },
-        "content_descriptions": [
-          {
-            "id": 5,
-            "description": "Violence"
-          },
-          {
-            "id": 6,
-            "description": "Strong Language"
-          }
-        ]
-      },
-      {
-        "id": 201,
-        "category": 4,
-        "rating": 4,
-        "rating_category": {
-          "id": 4,
-          "name": "CERO",
-          "rating": "Z"
-        },
-        "content_descriptions": [
-          {
-            "id": 7,
-            "description": "Sexual Content"
-          },
-          {
-            "id": 8,
-            "description": "Drug Reference"
-          }
-        ]
-      }
-    ],
-    "videos": [
-      {
-        "id": 3,
-        "name": "Official Cinematic Trailer",
-        "video_id": "oJzS_rS4f54"
-      }
-    ],
-    "websites": [
-      {
-        "id": 3,
-        "url": "https://www.cyberpunk.net/"
-      },
-      {
-        "id": 4,
-        "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "name": "piaty",
-    "storyline": "In the sprawling megalopolis of Night City, V, a mercenary outlaw, pursues a one-of-a-kind implant that is the key to immortality. The choices made and relationships forged will determine V's destiny in this neon-drenched future.",
-    "summary": "An open-world, action-adventure RPG set in the dark future of Night City, a megalopolis obsessed with power, glamour and body modification. Take on the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
-    "total_rating": 78.5,
-    "total_rating_count": 98000,
-    "game_modes": [
-      {
-        "id": 1,
-        "game_mode": {
-          "name": "Single player"
-        }
-      },
-      {
-        "id": 2,
-        "game_mode": {
-          "name": "Multiplayer"
-        }
-      }
-    ],
-    "keywords": [
-      {
-        "id": 1,
-        "keyword": {
-          "name": "cyberpunk"
-        }
-      },
-      {
-        "id": 2,
-        "keyword": {
-          "name": "rpg"
-        }
-      },
-      {
-        "id": 3,
-        "keyword": {
-          "name": "open world"
-        }
-      }
-    ],
-    "language_supports": [
-      {
-        "id": 1,
-        "language": {
-          "name": "English"
-        }
-      },
-      {
-        "id": 2,
-        "language": {
-          "name": "Polish"
-        }
-      },
-      {
-        "id": 3,
-        "language": {
-          "name": "Japanese"
-        }
-      }
-    ],
-    "genres": [
-      {
-        "id": 1,
-        "genre": {
-          "name": "Role-playing (RPG)"
-        }
-      },
-      {
-        "id": 2,
-        "genre": {
-          "name": "Action"
-        }
-      }
-    ],
-    "player_perspectives": [
-      {
-        "id": 1,
-        "player_perspective": {
-          "name": "First-person"
-        }
-      }
-    ],
-    "platforms": [
-      {
-        "id": 1,
-        "platform": {
-          "name": "PC"
-        }
-      },
-      {
-        "id": 2,
-        "platform": {
-          "name": "PlayStation 5"
-        }
-      },
-      {
-        "id": 3,
-        "platform": {
-          "name": "Xbox Series X"
-        }
-      }
-    ],
-    "screenshots": [
-      {
-        "id": 1,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq6.jpg"
-      },
-      {
-        "id": 2,
-        "url": "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scaq7.jpg"
-      }
-    ],
-    "age_ratings": [
-      {
-        "id": 200,
-        "category": 3,
-        "rating": 3,
-        "rating_category": {
-          "id": 3,
-          "name": "USK",
-          "rating": "18"
-        },
-        "content_descriptions": [
-          {
-            "id": 5,
-            "description": "Violence"
-          },
-          {
-            "id": 6,
-            "description": "Strong Language"
-          }
-        ]
-      },
-      {
-        "id": 201,
-        "category": 4,
-        "rating": 4,
-        "rating_category": {
-          "id": 4,
-          "name": "CERO",
-          "rating": "Z"
-        },
-        "content_descriptions": [
-          {
-            "id": 7,
-            "description": "Sexual Content"
-          },
-          {
-            "id": 8,
-            "description": "Drug Reference"
-          }
-        ]
-      }
-    ],
-    "videos": [
-      {
-        "id": 3,
-        "name": "Official Cinematic Trailer",
-        "video_id": "oJzS_rS4f54"
-      }
-    ],
-    "websites": [
-      {
-        "id": 3,
-        "url": "https://www.cyberpunk.net/"
-      },
-      {
-        "id": 4,
-        "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
-      }
-    ]
+    "keywords": []
   }
 ]

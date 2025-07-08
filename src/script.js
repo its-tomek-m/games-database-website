@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// --- Utility Functions ---
+// --- Game list Functions ---
 
 /**
  * Fetches game data from the local JSON file.
@@ -278,7 +278,7 @@ function formatGameData(game) {
         rating: game.total_rating ? game.total_rating.toFixed(1) : 'N/A', // Format rating to one decimal place
         totalRatingCount: game.total_rating_count ? game.total_rating_count.toLocaleString() : 'N/A', // Format with locale-specific thousands separator
         gameModes: extractNames(game.game_modes, 'game_mode'),
-        keywords: extractNames(game.keywords, 'keyword'),
+        //keywords: extractNames(game.keywords, 'keyword'),
         languages: extractNames(game.language_supports, 'language'),
         genres: extractNames(game.genres, 'genre'),
         offlineCoOp: hasOfflineCoOp,
@@ -286,6 +286,7 @@ function formatGameData(game) {
         perspectives: extractNames(game.player_perspectives, 'player_perspective'),
         platforms: extractNames(game.platforms, 'platform'),
         screenshots: game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].url : 'no-screenshot.jpg', // Use first screenshot URL
+        cover: game.cover && game.cover.length > 0 ? game.cover[0].url : 'no-screenshot.jpg',//own cover feat
         ageRatings: formattedAgeRatings, // Object with specific age rating strings
         video: formattedVideo,
         websites: formattedWebsites
@@ -312,38 +313,35 @@ function renderGameItem(game) {
     // Basic view (always visible)
     // Age rating row: <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
     gameItem.innerHTML = `
-        <div class="flex flex-col md:grid md:grid-cols-6 gap-4 items-start font-bold text-lg">
+    <div class="flex flex-col md:grid md:grid-cols-8 gap-4 items-start font-bold text-lg">
+    ${game.cover !== 'no-cover.jpg' ? `<img src="${game.cover}" alt="cover of ${game.name}" class="mt-2 rounded-lg max-w-full h-auto">` : ''}
     <div class="text-blue-400 text-xl md:col-span-1 w-full">${game.name}</div>
-    <div class="text-base text-gray-300 md:col-span-2 w-full">${game.summary}</div>
-    
-    <div class="flex flex-row w-full md:grid md:grid-cols-4 md:gap-4 md:col-span-3">
+    <div class="text-xs text-gray-300 md:col-span-2 w-full font-normal">${game.summary}</div>
+    <div class="flex flex-row w-full md:grid md:grid-cols-3 md:gap-4 md:col-span-4">
         <div class="text-right w-1/4 md:w-full">
             <span class="text-blue-300">Age Ratings:</span>
             <span class="text-gray-300 text-base block">${ageRatingDisplay}</span>
         </div>
-        
-        <div class="text-right w-1/4 md:w-full">
-            <span class="text-blue-300">Rating:</span>
-            <span class="text-gray-300 text-base block">${game.rating}</span>
+        <div class="flex flex-row w-1/4 md:flex md:flex-col md:w-full">
+            <div class="text-right w-full">
+                <span class="text-blue-300">Rating:</span>
+                <span class="text-gray-300 text-base block">${game.rating}</span>
+            </div>
+            <div class="text-right w-full">
+                <span class="text-blue-300">Votes:</span>
+                <span class="text-gray-300 text-base block">${game.totalRatingCount}</span>
+            </div>
         </div>
-        
-        <div class="text-right w-1/4 md:w-full">
-            <span class="text-blue-300">Votes:</span>
-            <span class="text-gray-300 text-base block">${game.totalRatingCount}</span>
-        </div>
-        
         <div class="text-right w-1/4 md:w-full">
             <span class="text-blue-300">Genres:</span>
             <span class="text-gray-300 text-base block">${game.genres}</span>
         </div>
     </div>
-    
 </div>
 <div class="game-details mt-4 p-4 border-t border-gray-700 hidden text-sm">
     <p class="mb-2"><span class="font-semibold text-blue-300">Storyline:</span> ${game.storyline}</p>
     <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
     <p class="mb-2"><span class="font-semibold text-blue-300">Game Modes:</span> ${game.gameModes}</p>
-    <p class="mb-2"><span class="font-semibold text-blue-300">Keywords:</span> ${game.keywords}</p>
     <p class="mb-2"><span class="font-semibold text-blue-300">Supported Languages:</span> ${game.languages}</p>
     <p class="mb-2"><span class="font-semibold text-blue-300">Offline Co-Op:</span> ${game.offlineCoOp}</p>
     <p class="mb-2"><span class="font-semibold text-blue-300">Split screen:</span> ${game.splitScreen}</p>
@@ -518,9 +516,9 @@ function applyFiltersAndSort() {
         currentGames = currentGames.filter(game =>
             game.name.toLowerCase().includes(searchQuery) ||
             (game.storyline && game.storyline.toLowerCase().includes(searchQuery)) ||
-            (game.summary && game.summary.toLowerCase().includes(searchQuery)) ||
+            (game.summary && game.summary.toLowerCase().includes(searchQuery))
             // Check keywords field from formatted data, which is a string
-            (formatGameData(game).keywords !== 'N/A' && formatGameData(game).keywords.toLowerCase().includes(searchQuery))
+            //(formatGameData(game).keywords !== 'N/A' && formatGameData(game).keywords.toLowerCase().includes(searchQuery))
         );
     }
 

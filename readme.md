@@ -81,3 +81,7 @@ game-db-portfolio/
 ## License
 
 (Specify your chosen license here, e.g., MIT License)
+
+## Source of assets 
+
+Icons: https://glyphs.fyi/
