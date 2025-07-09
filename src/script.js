@@ -309,32 +309,46 @@ function renderGameItem(game) {
     const ageRatingDisplay = ageRatingSystems.map(system =>
         `<p class="mb-1">${game.ageRatings[system] || `${system}: N/A`}</p>`
     ).join('');
+    // Obcinanie summary do 330 znaków
+    const maxLength = 300;
+    const truncatedSummary = game.summary && game.summary.length > maxLength
+        ? game.summary.slice(0, maxLength).trim() + '...'
+        : game.summary || 'N/A';
+    const showMoreText = game.summary && game.summary.length > maxLength
+        ? '<span class="click-for-more block text-blue-400 text-xs">Click text for more</span>'
+        : '';
 
     // Basic view (always visible)
     // Age rating row: <div class="mb-2"><span class="font-semibold text-blue-300">Age Ratings:</span><br>${ageRatingDisplay}</div>
     gameItem.innerHTML = `
-    <div class="flex flex-col md:grid md:grid-cols-8 gap-4 items-start font-bold text-lg">
+    <div class="flex flex-col md:grid md:grid-cols-8 gap-4 items-start font-bold text-base">
     ${game.cover !== 'no-cover.jpg' ? `<img src="${game.cover}" alt="cover of ${game.name}" class="mt-2 rounded-lg max-w-full h-auto">` : ''}
-    <div class="text-blue-400 text-xl md:col-span-1 w-full">${game.name}</div>
-    <div class="text-xs text-gray-300 md:col-span-2 w-full font-normal">${game.summary}</div>
-    <div class="flex flex-row w-full md:grid md:grid-cols-3 md:gap-4 md:col-span-4">
-        <div class="text-right w-1/4 md:w-full">
+    <div class="text-blue-400 text-base md:col-span-1 w-full">${game.name}</div>
+    <div class="text-xs text-gray-300 md:col-span-2 w-full font-normal cursor-pointer transition-transform duration-200" id="summary-${game.id}" data-full-summary="${game.summary || 'N/A'}">
+        <span class="summary-text">${truncatedSummary}</span>${showMoreText}
+    </div>
+    <div class="flex flex-row w-full md:grid md:grid-cols-4 md:gap-4 md:col-span-4 ">
+        <div class="text-left w-1/4 md:w-full">
             <span class="text-blue-300">Age Ratings:</span>
-            <span class="text-gray-300 text-base block">${ageRatingDisplay}</span>
+            <span class="text-gray-300 text-sm block">${ageRatingDisplay}</span>
         </div>
-        <div class="flex flex-row w-1/4 md:flex md:flex-col md:w-full">
-            <div class="text-right w-full">
+        <div class="flex flex-col w-1/4 md:flex md:flex-col md:w-full">
+            <div class="text-left w-full">
                 <span class="text-blue-300">Rating:</span>
-                <span class="text-gray-300 text-base block">${game.rating}</span>
+                <span class="text-gray-300 text-sm block">${game.rating}</span>
             </div>
-            <div class="text-right w-full">
+            <div class="text-left w-full">
                 <span class="text-blue-300">Votes:</span>
-                <span class="text-gray-300 text-base block">${game.totalRatingCount}</span>
+                <span class="text-gray-300 text-sm block">${game.totalRatingCount}</span>
             </div>
+        </div>
+        <div class="text-left w-1/4 md:w-full">
+            <span class="text-blue-300">Genres:</span>
+            <span class="text-gray-300 text-sm block">${game.genres}</span>
         </div>
         <div class="text-right w-1/4 md:w-full">
-            <span class="text-blue-300">Genres:</span>
-            <span class="text-gray-300 text-base block">${game.genres}</span>
+            <span class="text-blue-300">Platforms:</span>
+            <span class="text-gray-300 text-sm block">${game.platforms}</span>
         </div>
     </div>
 </div>
@@ -347,12 +361,34 @@ function renderGameItem(game) {
     <p class="mb-2"><span class="font-semibold text-blue-300">Split screen:</span> ${game.splitScreen}</p>
     <p class="mb-2"><span class="font-semibold text-blue-300">Player Perspectives:</span> ${game.perspectives}</p>
     <p class="mb-2"><span class="font-semibold text-blue-300">Platforms:</span> ${game.platforms}</p>
-    <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
+    <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" 
+        target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
     <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
     ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
 </div>
     `;
+    // Dodaj obsługę kliknięcia dla summary
+    const summaryElement = gameItem.querySelector(`#summary-${game.id}`);
+    if (summaryElement) {
+        const textElement = summaryElement.querySelector('.summary-text');
+        const moreElement = summaryElement.querySelector('.click-for-more');
+        let isExpanded = false;
+        summaryElement.addEventListener('click', (e) => {
+            e.stopPropagation(); // Zapobiegaj przełączaniu game-details
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                textElement.textContent = summaryElement.dataset.fullSummary || 'N/A';
+                summaryElement.classList.add('scale-102');
+                if (moreElement) moreElement.classList.add('hidden');
+            } else {
+                textElement.textContent = truncatedSummary;
+                summaryElement.classList.remove('scale-102');
+                if (moreElement) moreElement.classList.remove('hidden');
+            }
+        });
+    }
 
+    // Zachowaj istniejącą obsługę kliknięcia dla game-details
     // Add click event listener to toggle details
     gameItem.addEventListener('click', () => {
         const details = gameItem.querySelector('.game-details');
