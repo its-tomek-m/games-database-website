@@ -84,4 +84,4 @@ game-db-portfolio/
 
 ## Source of assets 
 
-Icons: https://glyphs.fyi/
+Icons: https://glyphs.fyi/, https://symbl.cc/pl/

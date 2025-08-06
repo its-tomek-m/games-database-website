@@ -285,8 +285,11 @@ function formatGameData(game) {
         splitScreen: hasSplitScreen,
         perspectives: extractNames(game.player_perspectives, 'player_perspective'),
         platforms: extractNames(game.platforms, 'platform'),
-        screenshots: game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].url : 'no-screenshot.jpg', // Use first screenshot URL
-        cover: game.cover && game.cover.length > 0 ? game.cover[0].url : 'no-screenshot.jpg',//own cover feat
+        //screenshots: game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].url : 'no-screenshot.jpg', // Use first screenshot URL
+        screenshots: (game.screenshots && game.screenshots.length > 0)
+            ? game.screenshots.slice(0, 3).map(s => s.url) // Pobierz do 3 obiektów screenshotów i zwróć ich URL-e
+            : [], // Zwróć pustą tablicę, jeśli nie ma żadnych screenshotów
+        cover: game.cover && game.cover.length > 0 ? game.cover[0].url : 'no-cover.jpg',//own cover feat
         ageRatings: formattedAgeRatings, // Object with specific age rating strings
         video: formattedVideo,
         websites: formattedWebsites
@@ -314,8 +317,10 @@ function renderGameItem(game) {
     const truncatedSummary = game.summary && game.summary.length > maxLength
         ? game.summary.slice(0, maxLength).trim() + '...'
         : game.summary || 'N/A';
+
+    // More/less function text for summary   
     const showMoreText = game.summary && game.summary.length > maxLength
-        ? '<span class="click-for-more block text-blue-400 text-xs">Click text for more</span>'
+        ? '<span class="click-for-more block text-blue-400 text-xs hover:text-blue-300 text-center">&#9663; More &#9663;</span>'
         : '';
 
     // Basic view (always visible)
@@ -365,6 +370,13 @@ function renderGameItem(game) {
         target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
     <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
     ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+    ${game.screenshots && game.screenshots.length > 0 ?
+            `<div class="mt-4 flex flex-wrap gap-4 justify-center">` +
+            game.screenshots.map(url => `
+            <img src="${url}" alt="Screenshot of ${game.name}" class="rounded-lg max-w-full h-auto w-full md:w-1/3 object-cover">
+        `).join('') +
+            `</div>`
+            : ''}
 </div>
     `;
     // Dodaj obsługę kliknięcia dla summary
@@ -378,12 +390,12 @@ function renderGameItem(game) {
             isExpanded = !isExpanded;
             if (isExpanded) {
                 textElement.textContent = summaryElement.dataset.fullSummary || 'N/A';
-                summaryElement.classList.add('scale-102');
-                if (moreElement) moreElement.classList.add('hidden');
+                summaryElement.classList.add('scale-104');
+                if (moreElement) moreElement.textContent = '▵ Less ▵';
             } else {
                 textElement.textContent = truncatedSummary;
-                summaryElement.classList.remove('scale-102');
-                if (moreElement) moreElement.classList.remove('hidden');
+                summaryElement.classList.remove('scale-104');
+                if (moreElement) moreElement.textContent = '▿ More ▿';
             }
         });
     }
