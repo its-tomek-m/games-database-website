@@ -369,7 +369,8 @@ function renderGameItem(game) {
     <p class="mb-2"><span class="font-semibold text-blue-300">Video:</span> <a href="${game.video.split(': ')[1] || '#'}" 
         target="_blank" class="text-blue-400 hover:underline">${game.video}</a></p>
     <div class="mb-2"><span class="font-semibold text-blue-300">Website URLs:</span><br>${game.websites}</div>
-    ${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+    <div class="mb-2"><span class="font-semibold text-blue-300">Game screenshots:</span><br>
+    
     ${game.screenshots && game.screenshots.length > 0 ?
             `<div class="mt-4 flex flex-wrap gap-4 justify-center">` +
             game.screenshots.map(url => `
@@ -379,6 +380,11 @@ function renderGameItem(game) {
             : ''}
 </div>
     `;
+    //Komentarz do wcześniejszego kodu, który był używany do wyświetlania screenshotów:
+    //Usunięto kod, który wyświetlał tylko pierwszy screenshot, aby umożliwić wyświetlanie wielu screenshotów w formie galerii.
+    //${game.screenshots !== 'no-screenshot.jpg' ? `<img src="${game.screenshots}" alt="Screenshot of ${game.name}" class="mt-4 rounded-lg max-w-full h-auto">` : ''}
+
+
     // Dodaj obsługę kliknięcia dla summary
     const summaryElement = gameItem.querySelector(`#summary-${game.id}`);
     if (summaryElement) {
